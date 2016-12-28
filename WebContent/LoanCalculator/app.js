@@ -1,17 +1,18 @@
 var app = angular.module('loanCalculator', []);
 app.controller('parentController', function($scope, $http) {
-	$scope.principle = 10000;
-	$scope.interest = 3;
-	$scope.length = 24;
+	$scope.principle = 0;
+	$scope.interest = 0;
+	$scope.length = 0;
 	$scope.mothlyPayment = 0;
+	$scope.myWelcome = '';
 	
 	$scope.calculateInterest = function(){
-		console.log("Entered Loop")
-		$scope.mothlyPayment = ($scope.principle * $scope.interest * Math.pow((1+$scope.interest),$scope.length))/(Math.pow((1+$scope.interest),$scope.length)-1)
+		var request = {priciple:$scope.principle, interest : $scope.interest, length:$scope.length};
+		//$scope.mothlyPayment = ($scope.principle * $scope.interest * Math.pow((1+$scope.interest),$scope.length))/(Math.pow((1+$scope.interest),$scope.length)-1)
 		$http({
 		    method : "POST",
 		    url : "http://192.168.1.6:8080/calculator/myresource",
-		    data : "Hello"
+		    data : request
 		  }).then(function mySucces(response) {
 		      $scope.myWelcome = response.data;
 		    }, function myError(response) {

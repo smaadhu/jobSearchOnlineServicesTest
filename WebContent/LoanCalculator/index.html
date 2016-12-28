@@ -8,17 +8,21 @@
 <body ng-app="loanCalculator" ng-controller="parentController">
 	<div class="col-xs-6">
 		<h1>Loan Calculator</h1>
-		<h1>Change Confirmedsss</h1>
 		<h4>Enter the Principal Amount here</h4>
 		<input class="input-md" ng-model="principle">
 		<h4>Enter the APR</h4>
 		<input class="input-md" ng-model="interest">
 		<h4>Enter the Duration in Months</h4>
 		<input class="input-md" ng-model="length">
-		<button class="btn btn-default" ng-click="calculateInterest()">Calculate EMI</button>
+		<div class="col-xs-12" style="text-align:center">
+			<button class="btn btn-default" ng-click="calculateInterest()">Calculate EMI</button>
+		</div>
 	</div>
 	<div class="col-xs-6">
 		<h1 style="font-size:35px; margin-top:200px">{{mothlyPayment}}</h1>
+	</div>
+	<div class="col-xs-12">
+		<h1>{{myWelcome}}</h1>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
